@@ -8,7 +8,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @FunctionalInterface
 public interface CacheConfiguration {
-    Logger logger = LoggerFactory.getLogger(CacheConfiguration.class);
+    Logger LOGGER = LoggerFactory.getLogger(CacheConfiguration.class);
 
     /**
      * @return
@@ -30,10 +30,10 @@ public interface CacheConfiguration {
                 template.setHashKeySerializer(new StringRedisSerializer());
                 template.setHashValueSerializer(new StringRedisSerializer());
             } else {
-                logger.error("Failed to connect to redis.");
+                LOGGER.error("Failed to connect to redis.");
             }
         } catch (Exception e) {
-            logger.error("Failed to connect to redis.", e);
+            LOGGER.error("Failed to connect to redis.", e);
         }
         return template;
     }
