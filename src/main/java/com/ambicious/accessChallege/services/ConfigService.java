@@ -20,38 +20,31 @@ public class ConfigService {
     @Value("#{T(java.util.Arrays).asList('${redis.cluster.nodes:}')}")
     private List<String> redisClusterNodes;
     //redis.cluster.nodes=team-oyster-db:7001,team-oyster-db:7002,team-oyster-db:7003
+    @Value("#{T(java.util.Arrays).asList('${redis.sentinels:}')}")
+    private List<String> redisSentinels;
+    @Value("${redis.master:#{null}}")
+    private String redisMaster;
 
     public int getRedisRefreshInterval() {
         return redisRefreshInterval;
-    }
-
-    public void setRedisRefreshInterval(int redisRefreshInterval) {
-        this.redisRefreshInterval = redisRefreshInterval;
     }
 
     public Boolean getRedisDynamicRefreshSources() {
         return redisDynamicRefreshSources;
     }
 
-    public void setRedisDynamicRefreshSources(Boolean redisDynamicRefreshSources) {
-        this.redisDynamicRefreshSources = redisDynamicRefreshSources;
-    }
-
     public Boolean getRedisValidateClusterMembership() {
         return redisValidateClusterMembership;
-    }
-
-    public void setRedisValidateClusterMembership(Boolean redisValidateClusterMembership) {
-        this.redisValidateClusterMembership = redisValidateClusterMembership;
     }
 
     public String getRedisPassword() {
         return redisPassword;
     }
 
-    public void setRedisPassword(String redisPassword) {
-        this.redisPassword = redisPassword;
+    public List<String> getRedisSentinels() {
+        return Collections.unmodifiableList(redisSentinels);
     }
+
     /**
      * Used for the Profile RedisCluster.
      *
@@ -59,5 +52,9 @@ public class ConfigService {
      */
     public List<String> getRedisClusterNodes() {
         return Collections.unmodifiableList(redisClusterNodes);
+    }
+
+    public String getRedisMaster() {
+        return redisMaster;
     }
 }
