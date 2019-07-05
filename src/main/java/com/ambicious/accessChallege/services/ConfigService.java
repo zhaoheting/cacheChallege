@@ -25,6 +25,56 @@ public class ConfigService {
     @Value("${redis.master:#{null}}")
     private String redisMaster;
 
+
+    @Value("${codis.zooKeeper.address:#{null}}")
+    private String codisZooKeeperAddress;
+    @Value("${codis.zooKeeper.proxy.path:#{null}}")
+    private String codisZooKeeperProxyPath;
+    @Value("${codis.server.password:#{null}}")
+    private String codisServerPassword;
+    @Value("${jodis.pool.max.total:-1}")
+    private int jodisPoolMaxTotal;
+    @Value("${jodis.pool.max.idle:-1}")
+    private int jodisPoolMaxIdle;
+    @Value("${jodis.pool.min.idle:-1}")
+    private int jodisPoolMinIdle;
+    @Value("${jodis.pool.max.wait.millis:-1}")
+    private long jodisPoolMaxWaitMillis;
+    @Value("${codis.zooKeeper.session.timeout.millis:-1}")
+    private int codisZooKeeperSessionTimeoutMillis;
+
+    public String getCodisZooKeeperAddress() {
+        return codisZooKeeperAddress;
+    }
+
+    public String getCodisZooKeeperProxyPath() {
+        return codisZooKeeperProxyPath;
+    }
+
+    public String getCodisServerPassword() {
+        return codisServerPassword;
+    }
+
+    public int getJodisPoolMaxTotal() {
+        return jodisPoolMaxTotal;
+    }
+
+    public int getJodisPoolMaxIdle() {
+        return jodisPoolMaxIdle;
+    }
+
+    public int getJodisPoolMinIdle() {
+        return jodisPoolMinIdle;
+    }
+
+    public long getJodisPoolMaxWaitMillis() {
+        return jodisPoolMaxWaitMillis;
+    }
+
+    public int getCodisZooKeeperSessionTimeoutMillis() {
+        return codisZooKeeperSessionTimeoutMillis;
+    }
+
     public int getRedisRefreshInterval() {
         return redisRefreshInterval;
     }

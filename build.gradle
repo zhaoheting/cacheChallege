@@ -33,4 +33,12 @@ dependencies {
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: "${springBootVersion}"
 	compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
 	compile(group: 'commons-lang', name: 'commons-lang', version: '2.6')
+	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.5'
+	compile(group: 'com.google.guava', name: 'guava', version: '27.1-jre')
+	compile "org.slf4j:log4j-over-slf4j:1.7.25"
+//	codis
+	compile(group: 'io.codis.jodis', name: 'jodis', version: '0.5.1') {
+		exclude(group: 'org.slf4j', module: 'slf4j-log4j12')
+		exclude(group: 'log4j', module: 'log4j')
+	}
 }

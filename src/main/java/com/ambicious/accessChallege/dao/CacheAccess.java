@@ -32,7 +32,7 @@ public interface CacheAccess {
     /**
      * @param key
      */
-    void containKey(String key);
+    boolean containKey(String key);
 
     /**
      * @param timeToLive
@@ -67,8 +67,8 @@ public interface CacheAccess {
     /**
      * Save fields to the specified hash object.
      *
-     * @param key
-     * @param map
+     * @param key Unique key to store object under
+     * @param map Hash object's key-value pairs as one map.
      */
-    void setHashValues(String key, Map<String, String> map);
+    void saveHashValues(String key, Map<String, String> map);
 }
