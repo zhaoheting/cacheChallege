@@ -15,14 +15,14 @@ public interface CacheAccess {
      * @param key
      * @param object
      */
-    void saveObject(String key, Object object);
+    void saveObject(String key, byte[] object);
 
     /**
      * @param key
      * @param object
      * @param timeToLive
      */
-    void saveObject(String key, Object object, int timeToLive);
+    void saveObject(String key, byte[] object, int timeToLive);
 
     /**
      * @param key
