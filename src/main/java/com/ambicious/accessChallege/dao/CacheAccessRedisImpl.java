@@ -8,10 +8,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 /**
  * @author Heting Zhao
@@ -90,26 +94,27 @@ public class CacheAccessRedisImpl implements CacheAccess {
 
     @Override
     public void deleteObject(String key) {
-
+        cacheConfiguration.getRedisTemplate().delete(key);
     }
 
     @Override
-    public void containKey(String key) {
-
+    public boolean containKey(String key) {
+        return cacheConfiguration.getRedisTemplate().hasKey(key);
     }
 
     @Override
-    public void setTimeToLive(int timeToLive) {
-
+    public void setTimeToLive(String key, int timeToLive) {
+        cacheConfiguration.getRedisTemplate().expire(key, timeToLive, TimeUnit.SECONDS);
     }
 
     @Override
-    public void getTimeToLive(String key) {
-
+    public long getTimeToLive(String key) {
+        return cacheConfiguration.getRedisTemplate().getExpire(key);
     }
 
     @Override
     public Boolean saveObjectIfAbsent(byte[] key, byte[] object, int timeToLive) {
+
         return null;
     }
 
@@ -119,7 +124,7 @@ public class CacheAccessRedisImpl implements CacheAccess {
     }
 
     @Override
-    public void setHashValues(String key, Map<String, String> map) {
+    public void saveHashValues(String key, Map<String, String> map) {
 
     }
 
