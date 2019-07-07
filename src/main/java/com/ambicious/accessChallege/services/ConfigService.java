@@ -25,7 +25,6 @@ public class ConfigService {
     @Value("${redis.master:#{null}}")
     private String redisMaster;
 
-
     @Value("${codis.zooKeeper.address:#{null}}")
     private String codisZooKeeperAddress;
     @Value("${codis.zooKeeper.proxy.path:#{null}}")
@@ -42,6 +41,10 @@ public class ConfigService {
     private long jodisPoolMaxWaitMillis;
     @Value("${codis.zooKeeper.session.timeout.millis:-1}")
     private int codisZooKeeperSessionTimeoutMillis;
+    @Value("${cacheObjectTTLInSeconds:1800}")
+    private int cacheObjectTTLInSeconds;
+    @Value("${compression.level:1}")
+    private int compressionLevel;
 
     public String getCodisZooKeeperAddress() {
         return codisZooKeeperAddress;
@@ -106,5 +109,13 @@ public class ConfigService {
 
     public String getRedisMaster() {
         return redisMaster;
+    }
+
+    public int getCacheObjectTTLInSeconds() {
+        return cacheObjectTTLInSeconds;
+    }
+
+    public int getCompressionLevel() {
+        return compressionLevel;
     }
 }
