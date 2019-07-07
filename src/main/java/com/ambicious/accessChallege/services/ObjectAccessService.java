@@ -51,30 +51,63 @@ public class ObjectAccessService {
         cacheAccess.saveObject(key, bytes, timeToLive);
     }
 
+    /**
+     * @param key
+     * @param tClass
+     * @param <T>
+     * @return
+     * @throws IOException
+     */
     public <T> T get(String key, Class<T> tClass) throws IOException {
         byte[] bytes = cacheAccess.getObject(key);
         return jsonMapper.readValue(bytes, tClass);
     }
 
+    /**
+     * @param key
+     * @param object
+     * @return
+     * @throws JsonProcessingException
+     */
     @Async
     public Future<Boolean> saveAsync(String key, Object object) throws JsonProcessingException {
         save(key, object);
         return new AsyncResult<>(true);
     }
 
+    /**
+     * @param key
+     * @param object
+     * @param timeToLive
+     * @return
+     * @throws JsonProcessingException
+     */
     @Async
     public Future<Boolean> saveAsync(String key, Object object, int timeToLive) throws JsonProcessingException {
         save(key, object, timeToLive);
         return new AsyncResult<>(true);
     }
 
+    /**
+     * @param key
+     * @param object
+     * @param timeToLive
+     * @throws IOException
+     */
     public void saveCompressed(String key, Object object, int timeToLive) throws IOException {
-        byte[] bytes = compressionService.compressBytes(jsonMapper.writeValueAsBytes(object),configService.getCompressionLevel());
-        cacheAccess.saveObject(key,bytes, timeToLive);
+        byte[] bytes = compressionService.compressBytes(jsonMapper.writeValueAsBytes(object), configService.getCompressionLevel());
+        cacheAccess.saveObject(key, bytes, timeToLive);
     }
 
+    /**
+     * @param key
+     * @param tClass
+     * @param <T>
+     * @return
+     * @throws IOException
+     */
     public <T> T getCompressed(String key, Class<T> tClass) throws IOException {
-       byte[] bytes = cacheAccess.getObject(key);
-       return jsonMapper.readValue(bytes, tClass);
+        byte[] bytes = cacheAccess.getObject(key);
+        return jsonMapper.readValue(bytes, tClass);
     }
 }
