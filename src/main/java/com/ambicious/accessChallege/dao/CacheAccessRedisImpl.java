@@ -94,8 +94,8 @@ public class CacheAccessRedisImpl implements CacheAccess {
     }
 
     @Override
-    public void containKey(String key) {
-
+    public boolean containKey(String key) {
+        return false;
     }
 
     @Override
@@ -119,7 +119,7 @@ public class CacheAccessRedisImpl implements CacheAccess {
     }
 
     @Override
-    public void setHashValues(String key, Map<String, String> map) {
+    public void saveHashValues(String key, Map<String, String> map) {
 
     }
 
