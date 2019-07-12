@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.ProfileDao">
+    <select id="queryProfile" resultType="com.example.demo.entity.Profile">
+        SELECT profile_id,profile_name,priority,create_time,last_edit_time
+        FROM tb_profile
+        ORDER BY priority
+        DESC
+    </select>
+
+    <select id="queryProfileById" resultType="com.example.demo.entity.Profile">
+        SELECT profile_id,profile_name,priority,create_time,last_edit_time
+        FROM tb_profile
+        WHERE
+        profile_id=#{profileId}
+    </select>
+
+    <insert id="insertProfile" useGeneratedKeys="true" keyProperty="profileId"
+            keyColumn="profile_id" parameterType="com.example.demo.entity.Profile">
+        INSERT INTO
+        tb_profile(profile_id,profile_name,priority,create_time,last_edit_time)
+        VALUES
+        (#{profileName},#{priority},#{createTime},#{lastEditTime})
+    </insert>
+
+    <update id="updateProfile" parameterType="com.example.demo.entity.Profile">
+        UPDATE  tb_profile
+        <set>
+            <if test="profileName!=null">profile_name=#{profileName}</if>
+            <if test="priority!=null">priority=#{priority}</if>
+            <if test="lastEditTime!=null">last_edit_time=#{lastEditTime}</if>
+        </set>
+        WHERE profile_id=#{profileId}
+    </update>
+
+    <delete id="deleteProfile">
+        DELETE FROM tb_profile
+        WHERE profile_id=#{profileId}
+    </delete>
+</mapper>

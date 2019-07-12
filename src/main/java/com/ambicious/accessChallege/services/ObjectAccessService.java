@@ -1,6 +1,6 @@
 package com.ambicious.accessChallege.services;
 
-import com.ambicious.accessChallege.dao.CacheAccess;
+import com.ambicious.accessChallege.config.CacheAccess;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.scheduling.annotation.Async;

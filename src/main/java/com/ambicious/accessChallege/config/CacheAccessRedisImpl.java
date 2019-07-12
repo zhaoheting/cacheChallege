@@ -1,4 +1,4 @@
-package com.ambicious.accessChallege.dao;
+package com.ambicious.accessChallege.config;
 
 import com.ambicious.accessChallege.error.ErrorCodes;
 import com.ambicious.accessChallege.error.exception.CacheAccessException;
@@ -8,14 +8,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 /**
  * @author Heting Zhao

@@ -1,4 +1,4 @@
-package com.ambicious.accessChallege.dao;
+package com.ambicious.accessChallege.config;
 
 import java.util.List;
 import java.util.Map;

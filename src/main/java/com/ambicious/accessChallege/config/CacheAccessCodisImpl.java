@@ -1,4 +1,4 @@
-//package com.ambicious.accessChallege.dao;
+//package com.ambicious.accessChallege.config;
 //
 //import com.ambicious.accessChallege.error.ErrorCodes;
 //import com.ambicious.accessChallege.error.exception.CacheAccessException;

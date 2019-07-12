@@ -1,4 +1,4 @@
-//package com.openjaw.api.dao;
+//package com.openjaw.api.config;
 //
 //import com.openjaw.api.services.config.ConfigService;
 //import org.springframework.context.annotation.Bean;

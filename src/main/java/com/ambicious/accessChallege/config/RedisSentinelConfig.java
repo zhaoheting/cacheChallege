@@ -1,4 +1,4 @@
-package com.ambicious.accessChallege.dao;
+package com.ambicious.accessChallege.config;
 
 import com.ambicious.accessChallege.services.ConfigService;
 import org.apache.commons.lang.StringUtils;
