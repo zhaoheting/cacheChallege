@@ -37,12 +37,12 @@ public interface CacheAccess {
     /**
      * @param timeToLive
      */
-    void setTimeToLive(int timeToLive);
+    void setTimeToLive(String key, int timeToLive);
 
     /**
      * @param key
      */
-    void getTimeToLive(String key);
+    long getTimeToLive(String key);
 
 
     /**

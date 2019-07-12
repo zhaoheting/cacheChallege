@@ -2,12 +2,12 @@ buildscript {
 	ext{
 		springBootVersion = '2.0.2.RELEASE'
 	}
-//	repositories {
-//		mavenCentral()
-//	}
-//	dependencies {
-//		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE")
-//	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE")
+	}
 }
 
 plugins {
@@ -34,9 +34,10 @@ dependencies {
 	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.5'
 	compile(group: 'com.google.guava', name: 'guava', version: '27.1-jre')
 	compile "org.slf4j:log4j-over-slf4j:1.7.25"
-//	codis
-	compile(group: 'io.codis.jodis', name: 'jodis', version: '0.5.1') {
-		exclude(group: 'org.slf4j', module: 'slf4j-log4j12')
-		exclude(group: 'log4j', module: 'log4j')
-	}
+//	compile(group: 'io.codis.jodis', name: 'jodis', version: '0.5.1') {
+//		exclude(group: 'org.slf4j', module: 'slf4j-log4j12')
+//		exclude(group: 'log4j', module: 'log4j')
+//	}
+	compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.1'
 }
+
