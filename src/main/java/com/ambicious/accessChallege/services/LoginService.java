@@ -5,5 +5,5 @@ import com.ambicious.accessChallege.models.swaggerModel.Profile;
 @FunctionalInterface
 public interface LoginService {
 
-    Profile login(String username);
+    Profile getProfile(String userName);
 }

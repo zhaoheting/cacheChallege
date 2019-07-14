@@ -3,41 +3,41 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.demo.dao.ProfileDao">
-    <select id="queryProfile" resultType="com.example.demo.entity.Profile">
-        SELECT profile_id,profile_name,priority,create_time,last_edit_time
-        FROM tb_profile
-        ORDER BY priority
-        DESC
-    </select>
+<mapper namespace="com.ambicious.accessChallege.dao.ProfileDao">
+    <!--<select id="queryProfile" resultType="com.ambicious.accessChallege.models.swaggerModel.Profile">-->
+        <!--SELECT profile_id,profile_name,priority,create_time,last_edit_time-->
+        <!--FROM tb_profile-->
+        <!--ORDER BY priority-->
+        <!--DESC-->
+    <!--</select>-->
 
-    <select id="queryProfileById" resultType="com.example.demo.entity.Profile">
-        SELECT profile_id,profile_name,priority,create_time,last_edit_time
+    <select id="queryProfileByName" resultType="com.ambicious.accessChallege.models.swaggerModel.Profile">
+        SELECT id,userName,age,create_time,last_edit_time
         FROM tb_profile
         WHERE
-        profile_id=#{profileId}
+        userName=#{userName}
     </select>
 
-    <insert id="insertProfile" useGeneratedKeys="true" keyProperty="profileId"
-            keyColumn="profile_id" parameterType="com.example.demo.entity.Profile">
-        INSERT INTO
-        tb_profile(profile_id,profile_name,priority,create_time,last_edit_time)
-        VALUES
-        (#{profileName},#{priority},#{createTime},#{lastEditTime})
-    </insert>
+    <!--<insert id="insertProfile" useGeneratedKeys="true" keyProperty="profileId"-->
+            <!--keyColumn="profile_id" parameterType="com.ambicious.accessChallege.models.swaggerModel.Profile">-->
+        <!--INSERT INTO-->
+        <!--tb_profile(profile_id,profile_name,age,create_time,last_edit_time)-->
+        <!--VALUES-->
+        <!--(#{profileName},#{priority},#{createTime},#{lastEditTime})-->
+    <!--</insert>-->
 
-    <update id="updateProfile" parameterType="com.example.demo.entity.Profile">
-        UPDATE  tb_profile
-        <set>
-            <if test="profileName!=null">profile_name=#{profileName}</if>
-            <if test="priority!=null">priority=#{priority}</if>
-            <if test="lastEditTime!=null">last_edit_time=#{lastEditTime}</if>
-        </set>
-        WHERE profile_id=#{profileId}
-    </update>
+    <!--<update id="updateProfile" parameterType="com.ambicious.accessChallege.models.swaggerModel.Profile">-->
+        <!--UPDATE  tb_profile-->
+        <!--<set>-->
+            <!--<if test="profileName!=null">profile_name=#{profileName}</if>-->
+            <!--<if test="priority!=null">priority=#{priority}</if>-->
+            <!--<if test="lastEditTime!=null">last_edit_time=#{lastEditTime}</if>-->
+        <!--</set>-->
+        <!--WHERE profile_id=#{profileId}-->
+    <!--</update>-->
 
-    <delete id="deleteProfile">
-        DELETE FROM tb_profile
-        WHERE profile_id=#{profileId}
-    </delete>
+    <!--<delete id="deleteProfile">-->
+        <!--DELETE FROM tb_profile-->
+        <!--WHERE profile_id=#{profileId}-->
+    <!--</delete>-->
 </mapper>

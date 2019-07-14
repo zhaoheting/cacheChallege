@@ -2,9 +2,18 @@ package com.ambicious.accessChallege.models.swaggerModel;
 
 public class Profile {
 
+    public int id;
     public String userName;
     public String password;
     public int age;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUserName() {
         return userName;

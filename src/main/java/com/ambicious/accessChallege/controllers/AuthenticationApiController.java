@@ -5,15 +5,17 @@ import com.ambicious.accessChallege.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class AuthenticationApiController {
 
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping("/login")
-    public Profile login(String userName){
-        return loginService.login(userName);
+    @RequestMapping("/getProfile")
+    public Profile login(String userName) {
+
+        return loginService.getProfile(userName);
     }
 }
