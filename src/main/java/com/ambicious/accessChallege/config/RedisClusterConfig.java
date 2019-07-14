@@ -6,6 +6,7 @@ import io.lettuce.core.cluster.ClusterClientOptions;
 import io.lettuce.core.cluster.ClusterTopologyRefreshOptions;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisPassword;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Component;
 import java.time.Duration;
 
 @Component
+@Profile("RedisCluster")
 public class RedisClusterConfig implements CacheConfiguration {
     @Autowired
     ConfigService configService;

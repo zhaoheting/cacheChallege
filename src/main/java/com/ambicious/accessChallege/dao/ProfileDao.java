@@ -11,7 +11,7 @@ public interface ProfileDao {
 
     Profile queryProfileByName(String userName);
 
-//    int insertProfile(Profile profile);
+    int insertProfile(Profile profile);
 //
 //    int updateProfile(Profile profile);
 //

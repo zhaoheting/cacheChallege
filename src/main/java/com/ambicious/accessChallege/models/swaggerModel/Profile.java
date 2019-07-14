@@ -1,11 +1,16 @@
 package com.ambicious.accessChallege.models.swaggerModel;
 
+import java.util.Date;
+
 public class Profile {
 
-    public int id;
-    public String userName;
-    public String password;
-    public int age;
+    private int id;
+    private String userName;
+    private String password;
+    private int age;
+    private Date createTime;
+    private Date lastEditTime;
+
 
     public int getId() {
         return id;
@@ -37,5 +42,21 @@ public class Profile {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastEditTime() {
+        return lastEditTime;
+    }
+
+    public void setLastEditTime(Date lastEditTime) {
+        this.lastEditTime = lastEditTime;
     }
 }

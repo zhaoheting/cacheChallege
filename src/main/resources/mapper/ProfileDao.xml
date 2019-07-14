@@ -12,19 +12,19 @@
     <!--</select>-->
 
     <select id="queryProfileByName" resultType="com.ambicious.accessChallege.models.swaggerModel.Profile">
-        SELECT id,userName,age,create_time,last_edit_time
+        SELECT user_id,user_name,user_age,create_time,last_edit_time
         FROM tb_profile
         WHERE
-        userName=#{userName}
+        user_name=#{userName}
     </select>
 
-    <!--<insert id="insertProfile" useGeneratedKeys="true" keyProperty="profileId"-->
-            <!--keyColumn="profile_id" parameterType="com.ambicious.accessChallege.models.swaggerModel.Profile">-->
-        <!--INSERT INTO-->
-        <!--tb_profile(profile_id,profile_name,age,create_time,last_edit_time)-->
-        <!--VALUES-->
-        <!--(#{profileName},#{priority},#{createTime},#{lastEditTime})-->
-    <!--</insert>-->
+    <insert id="insertProfile" useGeneratedKeys="true" keyProperty="id"
+            keyColumn="id" parameterType="com.ambicious.accessChallege.models.swaggerModel.Profile">
+        INSERT INTO
+        tb_profile(user_name,password,user_age,create_time,last_edit_time)
+        VALUES
+        (#{userName},#{password},#{age},#{createTime},#{lastEditTime})
+    </insert>
 
     <!--<update id="updateProfile" parameterType="com.ambicious.accessChallege.models.swaggerModel.Profile">-->
         <!--UPDATE  tb_profile-->
